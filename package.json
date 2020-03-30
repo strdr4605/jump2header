@@ -11,9 +11,9 @@
     "md-jump2": "lib/cli.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "lint": "tsc --noEmit && eslint '*/**/*.{js,ts}' --quiet --fix",
-    "pre-commit": "tsc --noEmit && lint-staged",
+    "pre-commit": "tsc --noEmit && lint-staged && npm test",
     "build": "tsc"
   },
   "repository": {
@@ -38,6 +38,8 @@
   },
   "homepage": "https://github.com/strdr4605/md-jump2#readme",
   "devDependencies": {
+    "@types/jest": "^25.1.4",
+    "@types/jest-in-case": "^1.0.1",
     "@types/node": "^13.9.5",
     "@typescript-eslint/eslint-plugin": "^2.26.0",
     "@typescript-eslint/parser": "^2.26.0",
@@ -45,8 +47,11 @@
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-prettier": "^3.1.2",
     "husky": "^4.2.3",
+    "jest": "^25.2.4",
+    "jest-in-case": "^1.0.2",
     "lint-staged": "^10.1.0",
     "prettier": "^2.0.2",
+    "ts-jest": "^25.3.0",
     "typescript": "^3.8.3"
   },
   "husky": {
