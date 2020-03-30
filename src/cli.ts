@@ -1,6 +1,7 @@
 #! /usr/bin/env node
 
 import { readFileSync } from "fs";
+import { isHeader, getLinkFromHeader } from "./utils";
 
 const ARROW_UP = "\u2B06";
 
@@ -10,14 +11,6 @@ const fileName = args[0];
 const file = readFileSync(fileName, { encoding: "utf-8" });
 
 const data = file.split("\n");
-
-function isHeader(line: string): boolean {
-  return /^#+ /.test(line);
-}
-
-function getLinkFromHeader(header: string): string {
-  return `#${header.split(/\s+/).slice(1).join("-").toLocaleLowerCase()}`;
-}
 
 interface HeaderType {
   index: number;
