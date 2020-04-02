@@ -1,5 +1,5 @@
 {
-  "name": "@strdr4605/md-jump2",
+  "name": "@strdr4605/jump2header",
   "version": "0.0.1",
   "description": "Add \"jump to\" links for markdown headers",
   "main": "lib/cli.js",
@@ -8,7 +8,7 @@
     "lib/**/*"
   ],
   "bin": {
-    "md-jump2": "lib/cli.js"
+    "jump2header": "lib/cli.js"
   },
   "scripts": {
     "test": "jest",
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/strdr4605/md-jump2.git"
+    "url": "git+https://github.com/strdr4605/jump2header.git"
   },
   "keywords": [
     "md",
@@ -34,9 +34,9 @@
   "author": "Dragoș Străinu",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/strdr4605/md-jump2/issues"
+    "url": "https://github.com/strdr4605/jump2header/issues"
   },
-  "homepage": "https://github.com/strdr4605/md-jump2#readme",
+  "homepage": "https://github.com/strdr4605/jump2header#readme",
   "devDependencies": {
     "@types/jest": "^25.1.4",
     "@types/jest-in-case": "^1.0.1",
