@@ -6,5 +6,5 @@ export interface CliArgs {
 export interface HeaderType {
   index: number;
   text: string;
-  link: string;
+  slug: string;
 }
