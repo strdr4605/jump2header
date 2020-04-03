@@ -1,5 +1,7 @@
 # jump2header#️⃣
 
+![Tests status](https://github.com/strdr4605/jump2header/workflows/Tests/badge.svg)
+
 Add "jump to" links for markdown headers
 
 ## Motivation
