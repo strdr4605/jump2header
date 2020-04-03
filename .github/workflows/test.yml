@@ -14,3 +14,5 @@ jobs:
       - run: npm run build
       - run: chmod +x ./lib/cli.js
       - run: npm test
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
