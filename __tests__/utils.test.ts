@@ -1,5 +1,5 @@
 import cases from "jest-in-case";
-import { isHeader } from "../src/utils";
+import { getSlugFromHeader, isHeader } from "../src/utils";
 
 describe("isHeader", () => {
   cases(
@@ -27,6 +27,31 @@ describe("isHeader", () => {
       { name: "#### Header4", line: "#### Header4" },
       { name: "##### Header5", line: "##### Header5" },
       { name: "###### Header6", line: "###### Header6" },
+    ],
+  );
+});
+
+describe("getSlugFromHeader", () => {
+  cases(
+    "Should return corrent slug from markdown header",
+    (opts) => {
+      expect(getSlugFromHeader(opts.header)).toEqual(opts.slug);
+    },
+    [
+      { name: "Simple Header", header: "# Header", slug: "header" },
+      { name: "kebab-header", header: "# kebab-header", slug: "kebab-header" },
+      {
+        name: "Multiple words",
+        header: "# Some nice header",
+        slug: "some-nice-header",
+      },
+      { name: "Header with emoji", header: "# Header ⬆️", slug: "header-" },
+      {
+        name: "Header with badge",
+        header:
+          "# mockingcase [![Build Status](https://travis-ci.org/strdr4605/mockingcase.svg?branch=master)](https://travis-ci.org/strdr4605/mockingcase)",
+        slug: "mockingcase-",
+      },
     ],
   );
 });
