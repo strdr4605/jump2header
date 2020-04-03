@@ -5,8 +5,6 @@ describe("isHeader", () => {
   cases(
     "Should return false if not markdown header",
     (opts) => {
-      console.log(opts.line);
-
       expect(isHeader(opts.line)).toBeFalsy();
     },
     [
