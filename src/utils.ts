@@ -12,8 +12,8 @@ export function isHeader(line: string): boolean {
   return MARKDOWN_HEADER_REGEXP.test(line);
 }
 
-export function isLinkInHeader(header: string): boolean {
-  return MARKDOWN_ANCHOR_LINK_REGEXP.test(header);
+export function isAnchorLinkInText(text: string): boolean {
+  return MARKDOWN_ANCHOR_LINK_REGEXP.test(text);
 }
 
 export function getSlugFromHeader(header: string): string {

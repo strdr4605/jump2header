@@ -1,5 +1,5 @@
 import { HeaderType } from "./interfaces";
-import { getSlugFromHeader, isHeader, isLinkInHeader } from "./utils";
+import { getSlugFromHeader, isAnchorLinkInText, isHeader } from "./utils";
 import { ARROW_UP } from "./constants";
 
 export function createNewFileContent(fileContent: string): string {
@@ -15,7 +15,7 @@ export function createNewFileContent(fileContent: string): string {
 
   headers
     .slice(1)
-    .filter((header) => !isLinkInHeader(header.text))
+    .filter((header) => !isAnchorLinkInText(header.text))
     .forEach((header) => {
       fileContentByLine[header.index] += `[${ARROW_UP}](#${firstHeaderSlug})`;
     });

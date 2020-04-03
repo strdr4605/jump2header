@@ -1,5 +1,5 @@
 import cases from "jest-in-case";
-import { getSlugFromHeader, isHeader } from "../src/utils";
+import { getSlugFromHeader, isAnchorLinkInText, isHeader } from "../src/utils";
 
 describe("isHeader", () => {
   cases(
@@ -28,6 +28,43 @@ describe("isHeader", () => {
       { name: "##### Header5", line: "##### Header5" },
       { name: "###### Header6", line: "###### Header6" },
     ],
+  );
+});
+
+describe("isAnchorLinkInText", () => {
+  cases(
+    "Should return false if no link in text",
+    (opts) => {
+      expect(isAnchorLinkInText(opts.line)).toBeFalsy();
+    },
+    [
+      { name: "some simple line", line: "some simple line" },
+      { name: "list item", line: "- item 1" },
+      { name: "code", line: "```js" },
+      { name: "####### Invalid Header", line: "####### Invalid Header" },
+      { name: "# Header1", line: "# Header1" },
+      { name: "## Header2", line: "## Header2" },
+      { name: "### Header3", line: "### Header3" },
+      { name: "#### Header4", line: "#### Header4" },
+      { name: "##### Header5", line: "##### Header5" },
+      { name: "###### Header6", line: "###### Header6" },
+      {
+        name: "Header with badge link",
+        line:
+          "# mockingcase [![Build Status](https://travis-ci.org/strdr4605/mockingcase.svg?branch=master)](https://travis-ci.org/strdr4605/mockingcase)",
+      },
+    ],
+  );
+
+  /**
+   * @todo Check why 2nd example fails
+   */
+  cases(
+    "Should return true if link exists",
+    (opts) => {
+      expect(isAnchorLinkInText(opts.line)).toBeTruthy();
+    },
+    [{ name: "# Header1[⬆️](#top)", line: "# Header1[⬆️](#top)" }],
   );
 });
 
