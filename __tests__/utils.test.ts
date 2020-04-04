@@ -1,5 +1,10 @@
 import cases from "jest-in-case";
-import { getSlugFromHeader, isAnchorLinkInText, isHeader } from "../src/utils";
+import {
+  getSlugFromHeader,
+  isAnchorLinkInText,
+  isCodeBlock,
+  isHeader,
+} from "../src/utils";
 
 describe("isHeader", () => {
   cases(
@@ -27,6 +32,34 @@ describe("isHeader", () => {
       { name: "#### Header4", line: "#### Header4" },
       { name: "##### Header5", line: "##### Header5" },
       { name: "###### Header6", line: "###### Header6" },
+    ],
+  );
+});
+
+describe("isCodeBlock", () => {
+  cases(
+    "Should return false if not markdown code block",
+    (opts) => {
+      expect(isCodeBlock(opts.line)).toBeFalsy();
+    },
+    [
+      { name: "some simple line", line: "some simple line" },
+      { name: "list item", line: "- item 1" },
+      { name: "###### Header6", line: "###### Header6" },
+      { name: "####### Invalid Header", line: "####### Invalid Header" },
+    ],
+  );
+
+  cases(
+    "Should return true if markdown code block",
+    (opts) => {
+      expect(isCodeBlock(opts.line)).toBeTruthy();
+    },
+    [
+      { name: "code block", line: "```" },
+      { name: "Markdown code block", line: "```md" },
+      { name: "JS code block", line: "``` js" },
+      { name: "Python code block", line: "```py" },
     ],
   );
 });
