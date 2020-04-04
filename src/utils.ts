@@ -3,6 +3,7 @@ import { readFileSync } from "fs";
 import {
   MARKDOWN_ANCHOR_LINK_REGEXP,
   MARKDOWN_ANY_LINK_REGEXP,
+  MARKDOWN_CODE_BLOCK_REGEXP,
   MARKDOWN_HEADER_REGEXP,
   SPICIAL_CHARS_REGEXP,
   WHITE_SPASE_REGEXP,
@@ -10,6 +11,10 @@ import {
 
 export function isHeader(line: string): boolean {
   return MARKDOWN_HEADER_REGEXP.test(line);
+}
+
+export function isCodeBlock(line: string): boolean {
+  return MARKDOWN_CODE_BLOCK_REGEXP.test(line);
 }
 
 export function isAnchorLinkInText(text: string): boolean {
