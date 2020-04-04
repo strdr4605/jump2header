@@ -56,15 +56,20 @@ describe("isAnchorLinkInText", () => {
     ],
   );
 
-  /**
-   * @todo Check why 2nd example fails
-   */
   cases(
     "Should return true if link exists",
     (opts) => {
       expect(isAnchorLinkInText(opts.line)).toBeTruthy();
     },
-    [{ name: "# Header1[⬆️](#top)", line: "# Header1[⬆️](#top)" }],
+    [
+      { name: "# Header[⬆️](#top)", line: "# Header[⬆️](#top)" },
+      { name: "# Header [⬆️](#top)", line: "# Header [⬆️](#top)" },
+      {
+        name: "# Header with words[⬆️](#top)",
+        line: "# Header with words[⬆️](#top)",
+      },
+      { name: "#### Header [link](#link)", line: "#### Header [link](#link)" },
+    ],
   );
 });
 
