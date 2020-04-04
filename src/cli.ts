@@ -7,7 +7,7 @@ import { getFileContent } from "./utils";
 
 function parseArgs(): CliArgs {
   const [, , ...args] = process.argv;
-  const inputFileName = args[0];
+  const inputFileName = args[0] || "README.md";
   const outputFileName = args[1] || inputFileName;
 
   if (!inputFileName.endsWith(".md")) {
