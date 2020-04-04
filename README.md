@@ -1,6 +1,7 @@
 # jump2header#️⃣
 
 ![Tests status](https://github.com/strdr4605/jump2header/workflows/Tests/badge.svg)
+[![Coverage Status](https://coveralls.io/repos/github/strdr4605/jump2header/badge.svg?branch=master)](https://coveralls.io/github/strdr4605/jump2header?branch=master)
 
 Add "jump to" links for markdown headers
 
