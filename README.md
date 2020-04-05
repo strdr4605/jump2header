@@ -6,7 +6,7 @@
 
 Add "jump to" links for markdown headers
 
-## Motivation
+## Motivation[⬆](#jump2header️⃣)
 
 When README is too long and it takes to much time to scroll back it is better to have a link back to top
 
@@ -20,19 +20,19 @@ Really long README
 ### Another section[⬆️](#awesome-project)
 ```
 
-## Installation
+## Installation[⬆](#jump2header️⃣)
 
 ```bash
 npm i -g @strdr4605/jump2header
 ```
 
-## Usage
+## Usage[⬆](#jump2header️⃣)
 
 ```bash
 jump2header # By default README.md file will be parsed and overwritten
 ```
 
-## API
+## API[⬆](#jump2header️⃣)
 
 ```bash
 jump2header --help
@@ -50,13 +50,13 @@ Options:
                             https://github.com/<user>/<repo>#api -> api [string]
 ```
 
-## Examples
+## Examples[⬆](#jump2header️⃣)
 
 | Initial markdown file        | output                         |
 | ---------------------------- | ------------------------------ |
 | [input1](examples/input1.md) | [output1](examples/output1.md) |
 
-## TODO
+## TODO[⬆](#jump2header️⃣)
 
 - [ ] Option for custom emoji (or a choise of emoji's like 🔝, ⬇️, 🔙, 🔼, 🆙)
 - [ ] Option to jump to previous header parent 
@@ -66,7 +66,7 @@ Options:
 
 **Welcome for contributions and discussions**
 
-## Development
+## Development[⬆](#jump2header️⃣)
 
 ```bash
 npm i
