@@ -1,6 +1,7 @@
-export interface CliArgs {
-  inputPath: string;
-  outputPath: string;
+export interface CliArgv {
+  file: string;
+  output?: string;
+  slug?: string;
 }
 
 export interface HeaderType {
