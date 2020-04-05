@@ -1,6 +1,6 @@
 {
   "name": "@strdr4605/jump2header",
-  "version": "0.0.1",
+  "version": "0.0.0-development",
   "description": "Add \"jump to\" links for markdown headers",
   "main": "lib/cli.js",
   "types": "lib/cli.d.ts",
@@ -15,7 +15,8 @@
     "lint": "tsc --noEmit && eslint '*/**/*.{js,ts}' --quiet --fix",
     "pre-commit": "tsc --noEmit && lint-staged && npm test",
     "build": "tsc",
-    "build:watch": "tsc -w"
+    "build:watch": "tsc -w",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
@@ -55,6 +56,7 @@
     "lint-staged": "^10.1.0",
     "prettier": "^2.0.2",
     "ts-jest": "^25.3.0",
+    "semantic-release": "^17.0.4",
     "typescript": "^3.8.3"
   },
   "husky": {

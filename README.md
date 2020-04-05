@@ -3,6 +3,7 @@
 ![Tests status](https://github.com/strdr4605/jump2header/workflows/Tests/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/strdr4605/jump2header/badge.svg?branch=master)](https://coveralls.io/github/strdr4605/jump2header?branch=master)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 Add "jump to" links for markdown headers
 
@@ -59,7 +60,7 @@ Options:
 ## TODO[⬆](#jump2header️⃣)
 
 - [ ] Option for custom emoji (or a choise of emoji's like 🔝, ⬇️, 🔙, 🔼, 🆙)
-- [ ] Option to jump to previous header parent 
+- [ ] Option to jump to previous header parent
 - [ ] More unit/e2e tests
 - [ ] More examples for people to see
 - [ ] Investigate cases when this package may not work and alert future users
