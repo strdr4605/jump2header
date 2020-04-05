@@ -49,6 +49,8 @@ Really long README
 
 This section is very important`;
 
-    expect(createNewFileContent(inputFileContent)).toEqual(newFileContent);
+    expect(createNewFileContent(inputFileContent, { file: "" })).toEqual(
+      newFileContent,
+    );
   });
 });

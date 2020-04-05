@@ -1,28 +1,41 @@
 #! /usr/bin/env node
 
 import { writeFileSync } from "fs";
-import { CliArgs } from "./interfaces";
+import yargs from "yargs";
+import { CliArgv } from "./interfaces";
 import { createNewFileContent } from "./transform";
 import { getFileContent } from "./utils";
 
-function parseArgs(): CliArgs {
-  const [, , ...args] = process.argv;
-  const inputFileName = args[0] || "README.md";
-  const outputFileName = args[1] || inputFileName;
+const argv: CliArgv = yargs
+  .options({
+    file: {
+      alias: "f",
+      default: "README.md",
+      describe: "File to be parsed\nNote: file shoud have .md extension",
+      type: "string",
+    },
+    output: {
+      alias: "o",
+      describe:
+        "File to write new content\nNote: input file will be overwritten if not provided",
+      type: "string",
+    },
+    slug: {
+      alias: ["s", "header", "h"],
+      describe:
+        'Specify header slug to jump to.\nNote: use text after "#" in url.\nhttps://github.com/<user>/<repo>#api -> api',
+      type: "string",
+    },
+  })
+  .check((argv) => {
+    if (!argv.file.endsWith(".md")) {
+      throw new Error('Input file should be markdown format, ".md"');
+    }
+    return true;
+  }).argv;
 
-  if (!inputFileName.endsWith(".md")) {
-    throw new Error('Input file should be markdown format, ".md"');
-  }
+const fileContent: string = getFileContent(argv.file);
 
-  return {
-    inputPath: inputFileName,
-    outputPath: outputFileName,
-  };
-}
-
-const args: CliArgs = parseArgs();
-const fileContent: string = getFileContent(args.inputPath);
-
-const newFileContent = createNewFileContent(fileContent);
-writeFileSync(args.outputPath, newFileContent);
+const newFileContent = createNewFileContent(fileContent, argv);
+writeFileSync(argv.output || argv.file, newFileContent);
 console.log("🎉 File successfully written! 🎉");

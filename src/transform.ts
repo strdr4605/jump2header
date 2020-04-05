@@ -1,4 +1,4 @@
-import { HeaderType } from "./interfaces";
+import { CliArgv, HeaderType } from "./interfaces";
 import {
   getSlugFromHeader,
   isAnchorLinkInText,
@@ -7,7 +7,10 @@ import {
 } from "./utils";
 import { ARROW_UP } from "./constants";
 
-export function createNewFileContent(fileContent: string): string {
+export function createNewFileContent(
+  fileContent: string,
+  argv: CliArgv,
+): string {
   const headers: HeaderType[] = [];
   let isCodeBlockStarted = false;
 
@@ -22,11 +25,13 @@ export function createNewFileContent(fileContent: string): string {
   });
   const firstHeaderSlug = headers[0].slug;
 
+  const anchorSlug = argv.slug || firstHeaderSlug;
+
   headers
     .slice(1)
     .filter((header) => !isAnchorLinkInText(header.text))
     .forEach((header) => {
-      fileContentByLine[header.index] += `[${ARROW_UP}](#${firstHeaderSlug})`;
+      fileContentByLine[header.index] += `[${ARROW_UP}](#${anchorSlug})`;
     });
 
   return fileContentByLine.join("\n");
