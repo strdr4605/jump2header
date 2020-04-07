@@ -38,24 +38,27 @@ jump2header # By default README.md file will be parsed and overwritten
 ```bash
 jump2header --help
 Options:
-  --help                    Show help                                  [boolean]
-  --version                 Show version number                        [boolean]
-  --file, -f                File to be parsed
-                            Note: file shoud have .md extension
+  --help                       Show help                               [boolean]
+  --version                    Show version number                     [boolean]
+  --file, -f                   File to be parsed
+                               Note: file shoud have .md extension
                                                  [string] [default: "README.md"]
-  --output, -o              File to write new content
-                            Note: input file will be overwritten if not provided
+  --output, -o                 File to write new content
+                               Note: input file will be overwritten if not
+                               provided                                 [string]
+  --slug, -s, --header, -h     Specify header slug to jump to.
+                               Note: use text after "#" in url.
+                               https://github.com/<user>/<repo>#api -> api
                                                                         [string]
-  --slug, -s, --header, -h  Specify header slug to jump to.
-                            Note: use text after "#" in url.
-                            https://github.com/<user>/<repo>#api -> api [string]
+  --maxLevel, -l, --max-level  Specify maximal header level to insert links.
+                               Note: value between 1 and 6
+                               [number] [choices: 1, 2, 3, 4, 5, 6] [default: 6]
 ```
 
 ## Examples[⬆](#jump2header️⃣)
 
-| Initial markdown file        | output                         |
-| ---------------------------- | ------------------------------ |
-| [input1](examples/input1.md) | [output1](examples/output1.md) |
+- [basic](examples/basic.md)
+- [maxHeaderLevel](examples/maxHeaderLevel.md)
 
 ## TODO[⬆](#jump2header️⃣)
 

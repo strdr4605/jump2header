@@ -1,5 +1,6 @@
 import cases from "jest-in-case";
 import {
+  getHeaderLevel,
   getSlugFromHeader,
   isAnchorLinkInText,
   isCodeBlock,
@@ -32,6 +33,35 @@ describe("isHeader", () => {
       { name: "#### Header4", line: "#### Header4" },
       { name: "##### Header5", line: "##### Header5" },
       { name: "###### Header6", line: "###### Header6" },
+    ],
+  );
+});
+
+describe("getHeaderLevel", () => {
+  cases(
+    "Should return 0 if not markdown header",
+    (opts) => {
+      expect(getHeaderLevel(opts.line)).toEqual(opts.result);
+    },
+    [
+      { name: "some simple line", line: "some simple line", result: 0 },
+      { name: "list item", line: "- item 1", result: 0 },
+      { name: "code", line: "```js", result: 0 },
+    ],
+  );
+
+  cases(
+    "Should return header level if markdown header",
+    (opts) => {
+      expect(getHeaderLevel(opts.line)).toEqual(opts.result);
+    },
+    [
+      { name: "# Header1", line: "# Header1", result: 1 },
+      { name: "## Header2", line: "## Header2", result: 2 },
+      { name: "### Header3", line: "### Header3", result: 3 },
+      { name: "#### Header4", line: "#### Header4", result: 4 },
+      { name: "##### Header5", line: "##### Header5", result: 5 },
+      { name: "###### Header6", line: "###### Header6", result: 6 },
     ],
   );
 });

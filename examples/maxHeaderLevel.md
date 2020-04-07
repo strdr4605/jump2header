@@ -1,8 +1,12 @@
-# Head
+# MaxHeaderLevel
 
-Some intro text
+Using `maxLevel` option from cli
 
-## Section1
+```bash
+jump2header -f examples/maxHeaderLevel.md --maxLevel 2
+```
+
+## Section1[⬆](#maxheaderlevel)
 
 Section1 is most important section
 
@@ -10,7 +14,7 @@ Section1 is most important section
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ornare dapibus turpis sed egestas. Cras est nunc, pellentesque ac imperdiet aliquet, tristique sed lectus. Quisque lectus lorem, pulvinar non enim nec, aliquam condimentum urna. Morbi porttitor sit amet lectus ut rhoncus. Suspendisse finibus tincidunt justo. Donec consectetur sit amet odio ut molestie. Quisque molestie orci nec tincidunt fermentum. Pellentesque viverra quam ut dolor varius pulvinar. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas enim tortor, commodo lacinia augue sit amet, viverra egestas nibh. Vestibulum leo ex, gravida at mi quis, ultricies pulvinar justo. Aenean ornare leo leo, malesuada suscipit lectus ornare vitae. Duis et ornare neque, id imperdiet augue. Morbi tincidunt erat id pellentesque dignissim. Nullam non sagittis magna. Suspendisse in pellentesque massa.
 
-## Section2 with many words
+## Section2 with many words[⬆](#maxheaderlevel)
 
 Cras vitae diam placerat, interdum augue vel, vehicula magna.
 
@@ -37,11 +41,11 @@ Quisque gravida auctor turpis et placerat. Nulla ut pharetra elit, ac tincidunt 
 
 Pellentesque ac sem eget tellus sagittis lobortis. In convallis suscipit leo et ornare. Sed vel hendrerit neque, non placerat tortor. Aenean placerat tortor orci, ac scelerisque diam consequat a. Suspendisse malesuada viverra mauris sed tincidunt.
 
-## Section3
+## Section3[⬆](#maxheaderlevel)
 
 Phasellus interdum sapien sed consectetur maximus. Fusce nec condimentum arcu. In aliquet magna lectus, eu pretium erat aliquam sed. Curabitur sodales, ligula eget porta euismod, justo ex sagittis odio, eu elementum velit ex sit amet tellus. Etiam at aliquam ex. Morbi in sodales ligula, nec volutpat lacus. Pellentesque quis aliquet lorem. Morbi vel blandit metus, luctus venenatis massa. Sed a varius ante, at laoreet ipsum.
 
-## Markdown
+## Markdown[⬆](#maxheaderlevel)
 
 ### List
 

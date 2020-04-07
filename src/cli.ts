@@ -26,6 +26,14 @@ const argv: CliArgv = yargs
         'Specify header slug to jump to.\nNote: use text after "#" in url.\nhttps://github.com/<user>/<repo>#api -> api',
       type: "string",
     },
+    maxLevel: {
+      alias: ["l", "max-level"],
+      default: 6,
+      describe:
+        "Specify maximal header level to insert links.\nNote: value between 1 and 6",
+      choices: [1, 2, 3, 4, 5, 6],
+      type: "number",
+    },
   })
   .check((argv) => {
     if (!argv.file.endsWith(".md")) {
