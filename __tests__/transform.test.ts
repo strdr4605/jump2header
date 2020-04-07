@@ -49,8 +49,8 @@ Really long README
 
 This section is very important`;
 
-    expect(createNewFileContent(inputFileContent, { file: "" })).toEqual(
-      newFileContent,
-    );
+    expect(
+      createNewFileContent(inputFileContent, { file: "", maxLevel: 6 }),
+    ).toEqual(newFileContent);
   });
 });

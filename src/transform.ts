@@ -1,5 +1,6 @@
 import { CliArgv, HeaderType } from "./interfaces";
 import {
+  getHeaderLevel,
   getSlugFromHeader,
   isAnchorLinkInText,
   isCodeBlock,
@@ -18,9 +19,13 @@ export function createNewFileContent(
   fileContentByLine.forEach((line, index) => {
     if (isCodeBlock(line)) {
       isCodeBlockStarted = !isCodeBlockStarted;
-    }
-    if (isHeader(line) && !isCodeBlockStarted) {
-      headers.push({ index, text: line, slug: getSlugFromHeader(line) });
+    } else if (isHeader(line) && !isCodeBlockStarted) {
+      headers.push({
+        index,
+        text: line,
+        slug: getSlugFromHeader(line),
+        level: getHeaderLevel(line),
+      });
     }
   });
   const firstHeaderSlug = headers[0].slug;
@@ -29,7 +34,10 @@ export function createNewFileContent(
 
   headers
     .slice(1)
-    .filter((header) => !isAnchorLinkInText(header.text))
+    .filter(
+      (header) =>
+        !isAnchorLinkInText(header.text) && header.level <= argv.maxLevel,
+    )
     .forEach((header) => {
       fileContentByLine[header.index] += `[${ARROW_UP}](#${anchorSlug})`;
     });

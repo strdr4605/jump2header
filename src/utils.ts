@@ -13,6 +13,14 @@ export function isHeader(line: string): boolean {
   return MARKDOWN_HEADER_REGEXP.test(line);
 }
 
+export function getHeaderLevel(line: string): number {
+  const result: RegExpExecArray | null = MARKDOWN_HEADER_REGEXP.exec(line);
+  if (!result) {
+    return 0;
+  }
+  return result.groups?.headerLevel.length || 0;
+}
+
 export function isCodeBlock(line: string): boolean {
   return MARKDOWN_CODE_BLOCK_REGEXP.test(line);
 }
