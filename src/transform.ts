@@ -36,7 +36,9 @@ export function createNewFileContent(
     .slice(1)
     .filter(
       (header) =>
-        !isAnchorLinkInText(header.text) && header.level <= argv.maxLevel,
+        !isAnchorLinkInText(header.text) &&
+        header.level <= argv.maxLevel &&
+        header.slug !== argv.slug,
     )
     .forEach((header) => {
       fileContentByLine[header.index] += `[${ARROW_UP}](#${anchorSlug})`;
