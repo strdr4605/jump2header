@@ -58,6 +58,7 @@ Options:
 ## Examples[⬆](#jump2header️⃣)
 
 - [basic](examples/basic.md)
+- [jump2SpecificSlug](examples/jump2SpecificSlug.md)
 - [maxHeaderLevel](examples/maxHeaderLevel.md)
 
 ## TODO[⬆](#jump2header️⃣)
