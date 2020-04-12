@@ -1,4 +1,4 @@
-export const ARROW_UP = "\u2B06";
+export const EMOJIS = ["⬆", "🔝", "🔙", "🆙", "🔼"];
 
 export const WHITE_SPASE_REGEXP = /\s/g;
 export const MARKDOWN_ANCHOR_LINK_REGEXP = /\[.+\]\(\#.+\)$/;

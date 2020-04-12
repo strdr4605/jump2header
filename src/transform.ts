@@ -6,7 +6,7 @@ import {
   isCodeBlock,
   isHeader,
 } from "./utils";
-import { ARROW_UP } from "./constants";
+import { EMOJIS } from "./constants";
 
 export function createNewFileContent(
   fileContent: string,
@@ -41,7 +41,9 @@ export function createNewFileContent(
         header.slug !== argv.slug,
     )
     .forEach((header) => {
-      fileContentByLine[header.index] += `[${ARROW_UP}](#${anchorSlug})`;
+      fileContentByLine[header.index] += `[${
+        EMOJIS[argv.emoji - 1]
+      }](#${anchorSlug})`;
     });
 
   return fileContentByLine.join("\n");
