@@ -22,8 +22,24 @@ const argv: CliArgv = yargs
     },
     slug: {
       alias: ["s", "header", "h"],
-      describe:
-        'Specify header slug to jump to.\nNote: use text after "#" in url.\nhttps://github.com/<user>/<repo>#api -> api',
+      describe: `Specify header slug to jump to.
+      Note: use text after "#" in url.
+      https://github.com/<user>/<repo>#api -> api
+      `,
+      type: "string",
+    },
+    start: {
+      describe: `Specify header from where to start adding links.
+      Notes:
+      multiple words should be wrapped in quotes "
+      will much by RegExp`,
+      type: "string",
+    },
+    end: {
+      describe: `Specify header to where to end adding links.
+      Notes:
+      multiple words should be wrapped in quotes "
+      will much by RegExp`,
       type: "string",
     },
     maxLevel: {
