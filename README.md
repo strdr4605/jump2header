@@ -67,6 +67,7 @@ Options:
 - [basic](examples/basic.md)
 - [jump2SpecificSlug](examples/jump2SpecificSlug.md)
 - [maxHeaderLevel](examples/maxHeaderLevel.md)
+- [Emoji choise](examples/emojiChoise.md)
 
 ## TODO[⬆](#jump2header️⃣)
 
