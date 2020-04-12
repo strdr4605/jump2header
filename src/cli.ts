@@ -34,6 +34,18 @@ const argv: CliArgv = yargs
       choices: [1, 2, 3, 4, 5, 6],
       type: "number",
     },
+    emoji: {
+      alias: ["e"],
+      default: 1,
+      describe: `Specify the emoji for the links.
+      1 -> ⬆
+      2 -> 🔝
+      3 -> 🔙
+      4 -> 🆙
+      5 -> 🔼`,
+      choices: [1, 2, 3, 4, 5],
+      type: "number",
+    },
   })
   .check((argv) => {
     if (!argv.file.endsWith(".md")) {

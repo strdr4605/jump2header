@@ -3,6 +3,7 @@ export interface CliArgv {
   output?: string;
   slug?: string;
   maxLevel: number;
+  emoji: number;
 }
 
 export interface HeaderType {

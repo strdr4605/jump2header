@@ -53,6 +53,13 @@ Options:
   --maxLevel, -l, --max-level  Specify maximal header level to insert links.
                                Note: value between 1 and 6
                                [number] [choices: 1, 2, 3, 4, 5, 6] [default: 6]
+  --emoji, -e                  Specify the emoji for the links.
+                               1 -> ⬆
+                               2 -> 🔝
+                               3 -> 🔙
+                               4 -> 🆙
+                               5 -> 🔼
+                                  [number] [choices: 1, 2, 3, 4, 5] [default: 1]
 ```
 
 ## Examples[⬆](#jump2header️⃣)
@@ -63,7 +70,7 @@ Options:
 
 ## TODO[⬆](#jump2header️⃣)
 
-- [ ] Option for custom emoji (or a choise of emoji's like 🔝, ⬇️, 🔙, 🔼, 🆙)
+- [x] Option for custom emoji (or a choise of emoji's like 🔝, ⬇️, 🔙, 🔼, 🆙)
 - [ ] Option to jump to previous header parent
 - [ ] More unit/e2e tests
 - [ ] More examples for people to see
