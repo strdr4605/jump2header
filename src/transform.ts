@@ -32,25 +32,36 @@ export function createNewFileContent(
 
   const anchorSlug = argv.slug || firstHeaderSlug;
 
-  const startHeader = argv.start || headers[1].text;
-  const endHeader = argv.end || headers[headers.length - 1].text;
+  const startHeader = argv.start;
+  let startHeaderIndex;
 
-  let startHeaderIndex = headers.findIndex((header) =>
-    new RegExp(startHeader, "i").test(header.text),
-  );
+  if (startHeader) {
+    startHeaderIndex = headers.findIndex((header) =>
+      new RegExp(startHeader, "i").test(header.text),
+    );
 
-  if (startHeaderIndex === -1) {
+    if (startHeaderIndex === -1) {
+      startHeaderIndex = 1; // Start from second header
+    }
+  } else {
     startHeaderIndex = 1; // Start from second header
   }
 
-  let endHeaderIndex = headers.findIndex((header) =>
-    new RegExp(endHeader, "i").test(header.text),
-  );
+  const endHeader = argv.end;
+  let endHeaderIndex;
 
-  if (endHeaderIndex === -1) {
-    endHeaderIndex = headers.length;
+  if (endHeader) {
+    endHeaderIndex = headers.findIndex((header) =>
+      new RegExp(endHeader, "i").test(header.text),
+    );
+
+    if (endHeaderIndex === -1) {
+      endHeaderIndex = Infinity;
+    } else {
+      endHeaderIndex++; // To include last header when slicing the array.
+    }
   } else {
-    endHeaderIndex++; // To include last header when slicing the array.
+    endHeaderIndex = Infinity;
   }
 
   headers
