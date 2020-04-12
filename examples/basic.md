@@ -1,4 +1,4 @@
-# Basic[⬆](#basic)<!-- Link generated with jump2header -->
+# Basic
 
 ```bash
 jump2header -f examples/basic.md
