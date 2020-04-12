@@ -50,7 +50,11 @@ Really long README
 This section is very important`;
 
     expect(
-      createNewFileContent(inputFileContent, { file: "", maxLevel: 6 }),
+      createNewFileContent(inputFileContent, {
+        file: "",
+        maxLevel: 6,
+        emoji: 1,
+      }),
     ).toEqual(newFileContent);
   });
 });
