@@ -1,6 +1,6 @@
 export const EMOJIS = ["⬆", "🔝", "🔙", "🆙", "🔼"];
 
-export const LINK_COMMENT = " <!-- Link generated with jump2header -->";
+export const LINK_COMMENT = "<!-- Link generated with jump2header -->";
 
 export const WHITE_SPASE_REGEXP = /\s/g;
 export const MARKDOWN_ANCHOR_LINK_REGEXP = new RegExp(
