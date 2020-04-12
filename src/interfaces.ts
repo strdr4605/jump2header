@@ -4,6 +4,7 @@ export interface CliArgv {
   slug?: string;
   maxLevel: number;
   emoji: number;
+  silent?: boolean;
 }
 
 export interface HeaderType {

@@ -46,6 +46,12 @@ const argv: CliArgv = yargs
       choices: [1, 2, 3, 4, 5],
       type: "number",
     },
+    silent: {
+      boolean: true,
+      describe:
+        "By default jump2header will add comment to created links.\nUse this flag if you don't want the comment",
+      type: "boolean",
+    },
   })
   .check((argv) => {
     if (!argv.file.endsWith(".md")) {
@@ -58,4 +64,4 @@ const fileContent: string = getFileContent(argv.file);
 
 const newFileContent = createNewFileContent(fileContent, argv);
 writeFileSync(argv.output || argv.file, newFileContent);
-console.log("🎉 File successfully written! 🎉");
+console.log(`🎉 File ${argv.output || argv.file} successfully written! 🎉`);
