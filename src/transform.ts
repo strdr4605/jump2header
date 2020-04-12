@@ -32,7 +32,7 @@ export function createNewFileContent(
 
   const anchorSlug = argv.slug || firstHeaderSlug;
 
-  const startHeader = argv.start || headers[0].text;
+  const startHeader = argv.start || headers[1].text;
   const endHeader = argv.end || headers[headers.length - 1].text;
 
   let startHeaderIndex = headers.findIndex((header) =>
