@@ -13,11 +13,15 @@ When README is too long and it takes to much time to scroll back it is better to
 
 ```md
 # awesome-project
+
 ...
 Really long README
 ...
+
 ## Some section[⬆️](#awesome-project)
+
 ...
+
 ### Another section[⬆️](#awesome-project)
 ```
 
@@ -71,12 +75,12 @@ Options:
 - [basic](examples/basic.md)
 - [jump2SpecificSlug](examples/jump2SpecificSlug.md)
 - [maxHeaderLevel](examples/maxHeaderLevel.md)
-- [Emoji choise](examples/emojiChoise.md)
+- [Emoji choice](examples/emojiChoice.md)
 - [Start and end](examples/startEnd.md)
 
 ## TODO[⬆](#jump2header️⃣)
 
-- [x] Option for custom emoji (or a choise of emoji's like 🔝, ⬇️, 🔙, 🔼, 🆙)
+- [x] Option for custom emoji (or a choice of emoji's like 🔝, ⬇️, 🔙, 🔼, 🆙)
 - [ ] Option to jump to previous header parent
 - [ ] More unit/e2e tests
 - [ ] More examples for people to see
