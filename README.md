@@ -52,8 +52,17 @@ Options:
                                provided                                 [string]
   --slug, -s, --header, -h     Specify header slug to jump to.
                                Note: use text after "#" in url.
-                               https://github.com/<user>/<repo>#api -> api
+                               https://github.com/<user>/<repo>#api ->
+                               api
                                                                         [string]
+  --start                      Specify header from where to start adding links.
+                               Notes:
+                               multiple words should be wrapped in quotes "
+                               will much by RegExp                      [string]
+  --end                        Specify header to where to end adding links.
+                               Notes:
+                               multiple words should be wrapped in quotes "
+                               will much by RegExp                      [string]
   --maxLevel, -l, --max-level  Specify maximal header level to insert links.
                                Note: value between 1 and 6
                                [number] [choices: 1, 2, 3, 4, 5, 6] [default: 6]
