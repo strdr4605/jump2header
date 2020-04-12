@@ -6,7 +6,7 @@ import {
   isCodeBlock,
   isHeader,
 } from "./utils";
-import { EMOJIS } from "./constants";
+import { EMOJIS, LINK_COMMENT } from "./constants";
 
 export function createNewFileContent(
   fileContent: string,
@@ -43,7 +43,7 @@ export function createNewFileContent(
     .forEach((header) => {
       fileContentByLine[header.index] += `[${
         EMOJIS[argv.emoji - 1]
-      }](#${anchorSlug})`;
+      }](#${anchorSlug})${argv.silent ? "" : LINK_COMMENT}`;
     });
 
   return fileContentByLine.join("\n");

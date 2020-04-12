@@ -54,6 +54,7 @@ This section is very important`;
         file: "",
         maxLevel: 6,
         emoji: 1,
+        silent: true,
       }),
     ).toEqual(newFileContent);
   });

@@ -6,6 +6,7 @@ import {
   isCodeBlock,
   isHeader,
 } from "../src/utils";
+import { LINK_COMMENT } from "../src/constants";
 
 describe("isHeader", () => {
   cases(
@@ -132,6 +133,10 @@ describe("isAnchorLinkInText", () => {
         line: "# Header with words[⬆️](#top)",
       },
       { name: "#### Header [link](#link)", line: "#### Header [link](#link)" },
+      {
+        name: "#### Header [link](#link) with link comment",
+        line: `#### Header [link](#link)${LINK_COMMENT}`,
+      },
     ],
   );
 });

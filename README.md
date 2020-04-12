@@ -60,6 +60,10 @@ Options:
                                4 -> 🆙
                                5 -> 🔼
                                   [number] [choices: 1, 2, 3, 4, 5] [default: 1]
+  --silent                     By default jump2header will add comment to
+                               created links.
+                               Use this flag if you don't want the comment
+                                                                       [boolean]
 ```
 
 ## Examples[⬆](#jump2header️⃣)
