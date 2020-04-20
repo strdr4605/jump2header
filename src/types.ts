@@ -1,7 +1,10 @@
+export type PositionType = "header" | "start" | "end";
+
 export interface CliArgv {
   file: string;
   output?: string;
   slug?: string;
+  position: PositionType | string;
   start?: string;
   end?: string;
   maxLevel: number;

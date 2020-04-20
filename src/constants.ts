@@ -10,3 +10,5 @@ export const MARKDOWN_ANY_LINK_REGEXP = /\[.+\]\(.+\)$/g;
 export const MARKDOWN_HEADER_REGEXP = /^(?<headerLevel>\#{1,6})\s+/;
 export const MARKDOWN_CODE_BLOCK_REGEXP = /^\`\`\`/;
 export const SPICIAL_CHARS_REGEXP = /[\u2000-\u206F\u2E00-\u2E7F\\'!"#$%&()*+,./:;<=>?@[\]^`{|}~’]/g;
+
+export const LINK_OFFSET = "\n\n";

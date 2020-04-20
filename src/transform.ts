@@ -1,12 +1,13 @@
-import { CliArgv, HeaderType } from "./interfaces";
+import { CliArgv, HeaderType } from "./types";
 import {
   getHeaderLevel,
   getSlugFromHeader,
+  isAnchorLinkInSection,
   isAnchorLinkInText,
   isCodeBlock,
   isHeader,
 } from "./utils";
-import { EMOJIS, LINK_COMMENT } from "./constants";
+import { EMOJIS, LINK_COMMENT, LINK_OFFSET } from "./constants";
 
 export function createNewFileContent(
   fileContent: string,
@@ -59,6 +60,9 @@ export function createNewFileContent(
       endHeaderIndex = Infinity;
     } else {
       endHeaderIndex++; // To include last header when slicing the array.
+      if ("end" === argv.position) {
+        endHeaderIndex++;
+      }
     }
   } else {
     endHeaderIndex = Infinity;
@@ -69,14 +73,47 @@ export function createNewFileContent(
     .filter(
       (header) =>
         !isAnchorLinkInText(header.text) &&
+        !isAnchorLinkInSection(
+          header.index,
+          argv.position,
+          fileContentByLine,
+        ) &&
         header.level <= argv.maxLevel &&
         header.slug !== argv.slug,
     )
-    .forEach((header) => {
-      fileContentByLine[header.index] += `[${
-        EMOJIS[argv.emoji - 1]
-      }](#${anchorSlug})${argv.silent ? "" : LINK_COMMENT}`;
+    .forEach((header, index) => {
+      switch (argv.position) {
+        case "header":
+          fileContentByLine[header.index] += `[${
+            EMOJIS[argv.emoji - 1]
+          }](#${anchorSlug})${argv.silent ? "" : LINK_COMMENT}`;
+          break;
+        case "start":
+          fileContentByLine[header.index] = `${
+            fileContentByLine[header.index]
+          }${LINK_OFFSET}[${EMOJIS[argv.emoji - 1]}](#${anchorSlug})${
+            argv.silent ? "" : LINK_COMMENT
+          }`;
+          break;
+        case "end":
+          if (0 === index) {
+            break;
+          }
+          fileContentByLine[header.index] = `[${
+            EMOJIS[argv.emoji - 1]
+          }](#${anchorSlug})${argv.silent ? "" : LINK_COMMENT}${LINK_OFFSET}${
+            fileContentByLine[header.index]
+          }`;
+          break;
+      }
     });
 
-  return fileContentByLine.join("\n");
+  let newFileContent = fileContentByLine.join("\n");
+  if (!Number.isFinite(endHeaderIndex) && "end" === argv.position) {
+    newFileContent += `${LINK_OFFSET}[${
+      EMOJIS[argv.emoji - 1]
+    }](#${anchorSlug})\n`;
+  }
+
+  return newFileContent;
 }
