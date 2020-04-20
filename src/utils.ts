@@ -1,6 +1,7 @@
 import emojiRegex from "emoji-regex";
 import { readFileSync } from "fs";
 import {
+  LINK_OFFSET,
   MARKDOWN_ANCHOR_LINK_REGEXP,
   MARKDOWN_ANY_LINK_REGEXP,
   MARKDOWN_CODE_BLOCK_REGEXP,
@@ -8,6 +9,7 @@ import {
   SPICIAL_CHARS_REGEXP,
   WHITE_SPASE_REGEXP,
 } from "./constants";
+import { PositionType } from "./types";
 
 export function isHeader(line: string): boolean {
   return MARKDOWN_HEADER_REGEXP.test(line);
@@ -27,6 +29,25 @@ export function isCodeBlock(line: string): boolean {
 
 export function isAnchorLinkInText(text: string): boolean {
   return MARKDOWN_ANCHOR_LINK_REGEXP.test(text);
+}
+
+export function isAnchorLinkInSection(
+  headerIndex: number,
+  linkPosition: PositionType | string,
+  fileContentByLine: string[],
+): boolean {
+  const OFFSET = LINK_OFFSET.length;
+  return (
+    {
+      header: false,
+      start: MARKDOWN_ANCHOR_LINK_REGEXP.test(
+        fileContentByLine[headerIndex + OFFSET],
+      ),
+      end: MARKDOWN_ANCHOR_LINK_REGEXP.test(
+        fileContentByLine[headerIndex - OFFSET],
+      ),
+    }[linkPosition as PositionType] || false
+  );
 }
 
 export function getSlugFromHeader(header: string): string {

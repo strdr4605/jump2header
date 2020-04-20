@@ -86,6 +86,7 @@ Options:
 - [maxHeaderLevel](examples/maxHeaderLevel.md)
 - [Emoji choice](examples/emojiChoice.md)
 - [Start and end](examples/startEnd.md)
+- [Change link position](examples/position.md)
 
 ## TODO[⬆](#jump2header️⃣)
 
