@@ -1,5 +1,9 @@
 # Initial
 
+```bash
+jump2header -f examples/initial.md -o examples/text.md -t "^ Back to Initial ^" -p "end"
+```
+
 Some intro text
 
 ## Section1
