@@ -112,7 +112,7 @@ Options:
 
 ## TODO[⬆](#jump2header️⃣)
 
-This tool is in the early stages and is not fully covered with unit/e2e tests. So if you have time and know how to write tests for this tool please contribute with PRs or links on that may be helpful. See #18
+This tool is in the early stages and is not fully covered with unit/e2e tests. So if you have time and know how to write tests for this tool please contribute with PRs or links on that may be helpful. See [#18](https://github.com/strdr4605/jump2header/issues/18).
 
 ## Development[⬆](#jump2header️⃣)
 
