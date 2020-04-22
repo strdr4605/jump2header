@@ -42,41 +42,62 @@ jump2header # By default README.md file will be parsed and overwritten
 ```bash
 jump2header --help
 Options:
-  --help                       Show help                               [boolean]
-  --version                    Show version number                     [boolean]
+  --help                       Show help                                    [boolean]
+  --version                    Show version number                          [boolean]
   --file, -f                   File to be parsed
                                Note: file shoud have .md extension
-                                                 [string] [default: "README.md"]
+
+                                                      [string] [default: "README.md"]
   --output, -o                 File to write new content
-                               Note: input file will be overwritten if not
-                               provided                                 [string]
+                               Note: input file will be overwritten if not provided
+
+                                                                             [string]
   --slug, -s, --header, -h     Specify header slug to jump to.
                                Note: use text after "#" in url.
-                               https://github.com/<user>/<repo>#api ->
-                               api
-                                                                        [string]
+                               https://github.com/<user>/<repo>#api -> api
+
+                                                                             [string]
+  --position, -p               Specify position of the link
+                               "header" -> Link will be in header
+                               "start" -> Link will be at the start of the section
+                               "end" -> Link will be at the end of the section
+
+                               Caution: may be some bugs with "end"
+
+                              [choices: "header", "start", "end"] [default: "header"]
+  --text, -t                   Specify text that will be used instead of emoji
+                               Note: multiple words should be wrapped in quotes ""
+
+                                                                             [string]
   --start                      Specify header from where to start adding links.
                                Notes:
-                               multiple words should be wrapped in quotes "
-                               will much by RegExp                      [string]
+                               multiple words should be wrapped in quotes ""
+                               will much by RegExp
+
+                                                                             [string]
   --end                        Specify header to where to end adding links.
                                Notes:
-                               multiple words should be wrapped in quotes "
-                               will much by RegExp                      [string]
+                               multiple words should be wrapped in quotes ""
+                               will much by RegExp
+
+                                                                             [string]
   --maxLevel, -l, --max-level  Specify maximal header level to insert links.
                                Note: value between 1 and 6
-                               [number] [choices: 1, 2, 3, 4, 5, 6] [default: 6]
+
+                                    [number] [choices: 1, 2, 3, 4, 5, 6] [default: 6]
   --emoji, -e                  Specify the emoji for the links.
                                1 -> ⬆
                                2 -> 🔝
                                3 -> 🔙
                                4 -> 🆙
                                5 -> 🔼
-                                  [number] [choices: 1, 2, 3, 4, 5] [default: 1]
-  --silent                     By default jump2header will add comment to
-                               created links.
+
+                                       [number] [choices: 1, 2, 3, 4, 5] [default: 1]
+  --silent                     By default jump2header will add comment to created
+                               links.
                                Use this flag if you don't want the comment
-                                                                       [boolean]
+
+                                                                            [boolean]
 ```
 
 ## Examples[⬆](#jump2header️⃣)
@@ -87,16 +108,11 @@ Options:
 - [Emoji choice](examples/emojiChoice.md)
 - [Start and end](examples/startEnd.md)
 - [Change link position](examples/position.md)
+- [Custom text](examples/text.md)
 
 ## TODO[⬆](#jump2header️⃣)
 
-- [x] Option for custom emoji (or a choice of emoji's like 🔝, ⬇️, 🔙, 🔼, 🆙)
-- [ ] Option to jump to previous header parent
-- [ ] More unit/e2e tests
-- [ ] More examples for people to see
-- [ ] Investigate cases when this package may not work and alert future users
-
-**Welcome for contributions and discussions**
+This tool is in the early stages and is not fully covered with unit/e2e tests. So if you have time and know how to write tests for this tool please contribute with PRs or links on that may be helpful. See #18
 
 ## Development[⬆](#jump2header️⃣)
 
