@@ -5,6 +5,7 @@ export interface CliArgv {
   output?: string;
   slug?: string;
   position: PositionType | string;
+  text?: string;
   start?: string;
   end?: string;
   maxLevel: number;

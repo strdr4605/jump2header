@@ -37,6 +37,11 @@ const argv: CliArgv = yargs
 
       Caution: may be some bugs with "end"\n\n`,
       choices: ["header", "start", "end"],
+    },
+    text: {
+      alias: ["t"],
+      describe: `Specify text that will be used instead of emoji
+      Note: multiple words should be wrapped in quotes ""\n\n`,
       type: "string",
     },
     start: {

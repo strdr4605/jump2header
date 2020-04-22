@@ -31,6 +31,7 @@ export function createNewFileContent(
   });
   const firstHeaderSlug = headers[0].slug;
 
+  const linkText = argv.text || EMOJIS[argv.emoji - 1];
   const anchorSlug = argv.slug || firstHeaderSlug;
 
   const startHeader = argv.start;
@@ -84,14 +85,14 @@ export function createNewFileContent(
     .forEach((header, index) => {
       switch (argv.position) {
         case "header":
-          fileContentByLine[header.index] += `[${
-            EMOJIS[argv.emoji - 1]
-          }](#${anchorSlug})${argv.silent ? "" : LINK_COMMENT}`;
+          fileContentByLine[header.index] += `[${linkText}](#${anchorSlug})${
+            argv.silent ? "" : LINK_COMMENT
+          }`;
           break;
         case "start":
           fileContentByLine[header.index] = `${
             fileContentByLine[header.index]
-          }${LINK_OFFSET}[${EMOJIS[argv.emoji - 1]}](#${anchorSlug})${
+          }${LINK_OFFSET}[${linkText}](#${anchorSlug})${
             argv.silent ? "" : LINK_COMMENT
           }`;
           break;
@@ -99,20 +100,16 @@ export function createNewFileContent(
           if (0 === index) {
             break;
           }
-          fileContentByLine[header.index] = `[${
-            EMOJIS[argv.emoji - 1]
-          }](#${anchorSlug})${argv.silent ? "" : LINK_COMMENT}${LINK_OFFSET}${
-            fileContentByLine[header.index]
-          }`;
+          fileContentByLine[header.index] = `[${linkText}](#${anchorSlug})${
+            argv.silent ? "" : LINK_COMMENT
+          }${LINK_OFFSET}${fileContentByLine[header.index]}`;
           break;
       }
     });
 
   let newFileContent = fileContentByLine.join("\n");
   if (!Number.isFinite(endHeaderIndex) && "end" === argv.position) {
-    newFileContent += `${LINK_OFFSET}[${
-      EMOJIS[argv.emoji - 1]
-    }](#${anchorSlug})\n`;
+    newFileContent += `${LINK_OFFSET}[${linkText}](#${anchorSlug})\n`;
   }
 
   return newFileContent;
