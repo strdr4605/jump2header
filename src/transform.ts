@@ -109,7 +109,9 @@ export function createNewFileContent(
 
   let newFileContent = fileContentByLine.join("\n");
   if (!Number.isFinite(endHeaderIndex) && "end" === argv.position) {
-    newFileContent += `${LINK_OFFSET}[${linkText}](#${anchorSlug})\n`;
+    newFileContent += `${LINK_OFFSET}[${linkText}](#${anchorSlug})${
+      argv.silent ? "" : LINK_COMMENT
+    }\n`;
   }
 
   return newFileContent;
