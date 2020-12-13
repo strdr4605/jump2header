@@ -8,8 +8,7 @@
   "main": "lib/cli.js",
   "types": "lib/cli.d.ts",
   "files": [
-    "lib/**/*",
-    "!lib/**/*.d.ts"
+    "lib/**/*"
   ],
   "bin": {
     "jump2header": "lib/cli.js"
